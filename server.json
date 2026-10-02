@@ -1,0 +1,14 @@
+{
+	"$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+	"name": "io.github.02inf/opencomment-ai",
+	"title": "OpenComment AI",
+	"description": "Research saved LinkedIn contacts, review monitored activity, and prepare engagement campaigns.",
+	"version": "1.0.0",
+	"websiteUrl": "https://opencomment.ai/mcp",
+	"remotes": [
+		{
+			"type": "streamable-http",
+			"url": "https://mcp.opencomment.ai/mcp"
+		}
+	]
+}

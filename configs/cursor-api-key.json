@@ -1,0 +1,10 @@
+{
+	"mcpServers": {
+		"opencomment": {
+			"url": "https://mcp.opencomment.ai/mcp",
+			"headers": {
+				"Authorization": "Bearer ${env:OPENCOMMENT_API_KEY}"
+			}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+[
+	{ "name": "product_overview", "arguments": {} },
+	{
+		"name": "product_search",
+		"arguments": { "query": "Contact Sources" }
+	},
+	{ "name": "pricing_reference", "arguments": {} },
+	{ "name": "get_started", "arguments": {} }
+]

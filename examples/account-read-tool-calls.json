@@ -1,0 +1,12 @@
+[
+	{ "name": "company_get", "arguments": { "input": {} } },
+	{ "name": "contact_lists_list", "arguments": { "input": {} } },
+	{
+		"name": "contacts_search",
+		"arguments": {
+			"input": { "pagination": { "page": 1, "pageSize": 10 } }
+		}
+	},
+	{ "name": "monitor_lists_list", "arguments": { "input": {} } },
+	{ "name": "contact_source_costs", "arguments": { "input": {} } }
+]

@@ -1,0 +1,9 @@
+.DS_Store
+.env
+.env.*
+*.pem
+*.key
+*.zip
+*.token
+*.tokens
+.mcpregistry_*

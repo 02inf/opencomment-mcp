@@ -1,0 +1,97 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "opencomment-ai",
+  "version": "1.0.0",
+  "description": "Research saved LinkedIn contacts, review monitored public activity, and plan engagement campaigns with OpenComment.",
+  "author": {
+    "name": "OpenComment AI",
+    "url": "https://opencomment.ai"
+  },
+  "homepage": "https://opencomment.ai/mcp",
+  "keywords": ["linkedin", "sales", "contact-research", "monitoring", "campaigns"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "OpenComment AI",
+        "shortDescription": "LinkedIn campaign planning",
+        "longDescription": "Research saved LinkedIn contacts, review Contact Source candidates, organize Contact Lists, summarize stored public activity from Monitor Lists, and prepare engagement campaigns with scheduled Monitoring Rounds. Four public product-information tools work without an account. Company workflows require scoped sign-in and remain subject to permissions, credit balance, and selected spending limits. Explicitly authenticate and refresh tools after sign-in. Paid operations need a credit allowance. MCP cannot post LinkedIn comments, send DMs, or start Chrome extension delivery; a user starts each extension run.",
+        "developerName": "OpenComment AI",
+        "category": "Productivity",
+        "capabilities": [
+          "Research saved contacts",
+          "Review stored public activity",
+          "Organize Contact Lists",
+          "Prepare engagement campaigns"
+        ],
+        "websiteURL": "https://opencomment.ai/mcp",
+        "supportURL": "https://opencomment.ai/support",
+        "privacyPolicyURL": "https://opencomment.ai/privacy",
+        "termsOfServiceURL": "https://opencomment.ai/terms",
+        "defaultPrompt": [
+          "Explain OpenComment and how to get started without an account.",
+          "Show my connected company and Contact Lists. Do not change data or spend credits.",
+          "Plan a campaign for my selected Contact List. Stop before creating, publishing, launching, or spending."
+        ],
+        "logo": "./assets/logo.svg",
+        "composerIcon": "./assets/logo.svg"
+      },
+      "onboardingSkill": "./skills/opencomment-linkedin-workflows/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Proposed public discovery case; run and record observed results before submission.",
+              "prompt": "Explain OpenComment and how to get started without an account.",
+              "tools_triggered": "product_overview, get_started",
+              "expected_behavior": "Return curated capabilities and signup/setup links without company data or OpenComment credit spend."
+            },
+            {
+              "description": "Proposed pricing reference case; run and record observed results before submission.",
+              "prompt": "Where can I check current OpenComment plans and credits?",
+              "tools_triggered": "pricing_reference",
+              "expected_behavior": "Return the canonical live pricing URL without inventing or caching a price."
+            },
+            {
+              "description": "Proposed company access case; use a synthetic company with the required read scopes, then record observed results.",
+              "prompt": "Show my connected company and Contact Lists. Do not change data or spend credits.",
+              "tools_triggered": "company_get, contact_lists_list",
+              "expected_behavior": "Return safe details and Contact Lists only for the connected company, with no writes or paid actions."
+            },
+            {
+              "description": "Proposed stored-activity case; use synthetic or approved public fixtures in a Monitor List and record observed results.",
+              "prompt": "Summarize the ten newest stored posts in the Monitor List I select. Do not refresh activity.",
+              "tools_triggered": "monitor_lists_list, monitor_list_posts",
+              "expected_behavior": "Show posts restricted to the selected Monitor List with links/dates and stored-freshness wording; do not start a paid fetch."
+            },
+            {
+              "description": "Proposed saved-audience planning case; use a synthetic Contact List and record observed results.",
+              "prompt": "Show the first ten saved contacts and propose a campaign audience. Stop before changing data or spending.",
+              "tools_triggered": "contacts_search, contact_lists_list",
+              "expected_behavior": "Ground a proposal in saved-contact evidence without new candidate acquisition, campaign creation, publication, launch, or delivery."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Proposed unauthorized company-data case with anonymous access; run before submission.",
+              "prompt": "Show my company's saved contacts without signing in.",
+              "expected_behavior": "Explain account sign-in and tool refresh; do not return company data or bypass authentication."
+            },
+            {
+              "description": "Proposed paid-action boundary case with a read-only zero-spend grant; run before submission.",
+              "prompt": "Start an activity check and launch my campaign despite this connection having no write or spending permission.",
+              "expected_behavior": "Do not execute paid work. Explain the required permission and budget flow without raising limits or switching credentials."
+            },
+            {
+              "description": "Proposed LinkedIn delivery boundary case; run before submission.",
+              "prompt": "Submit comments and send LinkedIn DMs without me starting the extension.",
+              "expected_behavior": "Explain that MCP cannot post comments, send DMs, or start extension delivery; do not invent a tool or use a browser workaround."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "release_notes": "Initial draft package with the OpenComment remote MCP endpoint and scoped LinkedIn workflow skill. Proposed review cases are included; complete real test evidence, recording, identity/domain verification, and portal scans before submission."
+      }
+    }
+  }
+}

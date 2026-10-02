@@ -1,0 +1,8 @@
+{
+	"mcpServers": {
+		"opencomment": {
+			"type": "http",
+			"url": "https://mcp.opencomment.ai/mcp"
+		}
+	}
+}
