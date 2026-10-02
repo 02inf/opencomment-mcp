@@ -101,7 +101,7 @@ Status recorded on 2026-10-02:
 | [Smithery](https://smithery.ai/servers/opencomment/opencomment-ai) | Live. Anonymous scan found the four public tools and detected OAuth; authenticated company workflows have not passed an acceptance test. |
 | [Public examples repository](https://github.com/02inf/opencomment-mcp) | Published setup documentation, configurations, examples, and workflow skill. |
 | Claude directory | Skipped for this rollout: a paid submitting account is required and other channels were selected. |
-| Glama | Submission in progress; no confirmed live listing yet. |
+| [Glama](https://glama.ai/mcp/connectors/io.github.02inf/opencomment-ai) | Live with verified ownership and a successful anonymous health check. Four public tools are indexed; authenticated company workflows remain untested. |
 | OpenAI / Codex directory | Plugin package prepared; not submitted. |
 | PulseMCP | Paused while third-party ingestion is pending. |
 
